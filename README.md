@@ -1,10 +1,11 @@
 # pasarbuton.py
+
 from flask import Flask, render_template, request, redirect
 import os
 
 app = Flask(__name__)
 
-# Data sementara dalam list
+# Data sementara dalam daftar
 barang_list = [
     {"id": 1, "nama": "Jambu Mete Lombe", "harga": "Rp 50.000", "pasar": "Pasar Lombe", "wa": "6281234567890"},
     {"id": 2, "nama": "Ikan Cakalang Segar", "harga": "Rp 35.000", "pasar": "Pasar Mawasangka", "wa": "6281234567890"}
@@ -25,6 +26,5 @@ def tambah():
     return redirect('/')
 
 if __name__ == '__main__':
-    # Agar bisa berjalan di server cloud seperti Render/Heroku
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
